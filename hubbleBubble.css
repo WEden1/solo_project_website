@@ -1,0 +1,14 @@
+h1{
+    font-family: 'Franklin Gothic Medium', 'serif';
+    text-align: center;
+}
+
+img{
+    position: relative;
+    width: 20%;
+    height: auto;
+}
+
+#mainContainer{
+    background-color: silver;
+}
