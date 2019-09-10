@@ -3,12 +3,18 @@ h1{
     text-align: center;
 }
 
+blockquote{
+    text-align: center;
+}
+
 img{
     float: left;
     width: 10%;
     height: auto;
 }
 
-#Container{
+div{
     background-color: silver;
+    padding: 10px;
+    margin: 20px;
 }

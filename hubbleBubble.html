@@ -2,41 +2,29 @@
 
 <head>
   <title>Hubble Bubble</title>
-  <link rel="stylesheet" href='hubbleBubble.css'></link>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href='hubbleBubble.css'>
+  </link>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </link>
 </head>
 
 <body>
 
-  <!-- <ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="addPotion.html">Add Potion</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Delete Potion</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Update Potion</a>
-  </li> -->
-  
-</ul>
 
-  <div class="Container">
-
-    <div>
-      <img src='cauldron.png'> </img>
-
+  <div class="Container-fluid">
+    <div class="jumbotron text-center">
       <h1 class="display-1"> Hubble Bubble </h1>
-
+      <hr class="my-4">
+      <blockquote class="blockquote">
+        <p class="mb-0">Double, double, toil and trouble, fire burn, and cauldron bubble..</p>
+        <footer class="blockquote-footer">William Shakespeare <cite title="Source Title">Macbeth Act IV, Scene I</cite>
+        </footer>
+      </blockquote>
     </div>
 
     <table class="table">
-      <thead>
+      <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Potion</th>
@@ -63,25 +51,54 @@
       <div class="form-group">
         <label for="exampleFormControlSelect1">Select Potion</label>
         <select class="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
       </div>
       <button type="submit" class="btn btn-primary">Show Ingredients</button>
     </form>
 
-     <button type="submit" class="btn btn-primary"> Add Potion</button>
+    <button type="submit" class="btn btn-primary"> Delete Potion</button>
+    <button type="submit" class="btn btn-primary"> Update Potion</button>
+
+    <form>
+      <h1 class="h1">
+        Create new potion
+      </h1>
+      <div class="form-group">
+        <label for="potionName">Potion name</label>
+        <input type="text" class="form-control" id="potionName" aria-describedby="emailHelp"
+          placeholder="Enter potion name">
+      </div>
+      <div class="form-group">
+        <label for="ingredient1">Ingredient 1</label>
+        <input type="text" class="form-control" id="ingredient1" placeholder="Enter ingredient 1">
+      </div>
+      <div class="form-group">
+        <label for="ingredient2">Ingredient 2</label>
+        <input type="text" class="form-control" id="ingredient2" placeholder="Enter ingredient 2">
+      </div>
+      <div class="form-group">
+        <label for="ingredient3">Ingredient 3</label>
+        <input type="text" class="form-control" id="ingredient3" placeholder="Enter ingredient 3">
+      </div>
+      <button type="submit" class="btn btn-primary"> Add New Potion</button>
+    </form>
   </div>
 
+
   <script src='hubbleBubble.js'></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 </body>
 
