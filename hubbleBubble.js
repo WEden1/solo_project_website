@@ -1,6 +1,6 @@
 function submitHandler(form) {
 
-    location.href = "ingredients.html";
+    location.href = "http://35.204.118.105/ingredients.html";
     let ingredients = [];
 
     for(element of form.elements){
