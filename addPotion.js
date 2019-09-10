@@ -1,11 +1,10 @@
 function submitHandler(form) {
 
-    location.href = "ingredients.html";
-    let ingredients = [];
+    location.href = "hubbleBubble.html";
 
-    for(element of form.elements){
-        ingredients[element.id] = element.value;
-    }
+    // for (element of form.elements) {
+    //     ingredients[element.id] = element.value;
+    // }
 
     // const req = new XMLHttpRequest();
     // req.open('POST', )
@@ -19,5 +18,7 @@ function submitHandler(form) {
     // }
     // req.setRequestHeader();
     // req.send(JSON.stringify(ingredients));
+
     return false;
+
 }

@@ -1,118 +1,88 @@
 <html>
 
 <head>
-    <title>Hubble Bubble</title>
-    <link rel="stylesheet" href='hubbleBubble.css'></link>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </link>
+  <title>Hubble Bubble</title>
+  <link rel="stylesheet" href='hubbleBubble.css'></link>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  </link>
 </head>
 
 <body>
-<div id = "mainContainer">
+
+  <!-- <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="addPotion.html">Add Potion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Delete Potion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Update Potion</a>
+  </li> -->
+  
+</ul>
+
+  <div class="Container">
 
     <div>
-    <img src = 'cauldron.png'> </img>
+      <img src='cauldron.png'> </img>
 
-    <h1 class="display-1"> Hubble Bubble </h1>
-   
+      <h1 class="display-1"> Hubble Bubble </h1>
+
     </div>
-    
+
     <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Ingredients</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Potion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
 
-          <form onsubmit="return submitHandler(this)">
+    <form onsubmit="return submitHandler(this)">
 
-          <div class="form-group">
-                <label for="exampleFormControlSelect1">Ingredient 1</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Potion</label>
+        <select class="form-control" id="exampleFormControlSelect1">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
                 </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Show Ingredients</button>
+    </form>
 
-                <label for="exampleFormControlSelect1">Ingredient 2</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+     <button type="submit" class="btn btn-primary"> Add Potion</button>
+  </div>
 
-                <label for="exampleFormControlSelect1">Ingredient 3</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-
-
-              <button class = "submit">Create Potion</button>
-            </form>
-          <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Potion</th>
-                    <th scope="col">Ingredient 1</th>
-                    <th scope="col">Ingredient 2</th>
-                    <th scope="col">Ingredient 3</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                  </tr>
-                </tbody>
-              </table>
-
-</div>
-
-    <script src='hubbleBubble.js'> </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+  <script src='hubbleBubble.js'></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 
 

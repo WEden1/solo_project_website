@@ -4,11 +4,11 @@ h1{
 }
 
 img{
-    position: relative;
-    width: 20%;
+    float: left;
+    width: 10%;
     height: auto;
 }
 
-#mainContainer{
+#Container{
     background-color: silver;
 }
