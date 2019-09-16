@@ -7,14 +7,25 @@ blockquote{
     text-align: center;
 }
 
-img{
-    float: left;
-    width: 10%;
-    height: auto;
+#inner{
+    background-color: lavenderblush;
+    padding: 30px;
 }
 
-div{
-    background-color: silver;
-    padding: 10px;
-    margin: 20px;
+#jumbo{
+    background-color: powderblue;
+}
+
+#navBar{
+    float: left;
+}
+
+createButton{
+    position:fixed;
+    float:left;
+}
+
+ .table-responsive{
+    overflow-y: scroll;
+    height: 400px;
 }
