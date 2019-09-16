@@ -1,6 +1,6 @@
 function submitHandler(form) {
 
-    let ingredients = [];
+    let ingredients = {}
     //a com
 
     for(element of form.elements){
@@ -17,7 +17,7 @@ function submitHandler(form) {
             console.log("Fail!!")
         }
     }
-    req.setRequestHeader();
+    req.setRequestHeader('Content-type', "application/json");
     req.send(JSON.stringify(ingredients));
     return false;
 }
