@@ -5,6 +5,7 @@ function submitHandler(form) {
     for(element of form.elements){
         ingredients[element.id] = element.value;
     }
+    console.log(ingredients);
 
     const req = new XMLHttpRequest();
     req.open('POST', "http://35.235.61.37:9000/ingredient")
