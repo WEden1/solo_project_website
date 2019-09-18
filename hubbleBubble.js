@@ -8,7 +8,7 @@ function submitHandler(form) {
     }
 
     const req = new XMLHttpRequest();
-    req.open('POST', "http://35.204.118.105:9000/ingredient")
+    req.open('POST', "http://35.235.61.37:9000/ingredient")
     req.onload = () => {
 
         if (req.status >= 200 && req.status <= 300) {
