@@ -1,7 +1,6 @@
 function submitHandler(form) {
 
     let ingredients = {}
-    //a com
 
     for(element of form.elements){
         ingredients[element.id] = element.value;
