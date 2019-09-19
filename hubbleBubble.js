@@ -37,7 +37,8 @@ function createTable(){
 
         if (req.status >= 200 && req.status <= 300) {
             console.log("success");
-            var json = JSON.parse(req.responseText)
+            var json = JSON.parse(req.responseText);
+            console.log(json);
         } else {
             console.log("Fail!!")
         }
@@ -47,7 +48,7 @@ function createTable(){
 
     let data = {};
 
-    for(element of json.elements){
+    for(element of json){
         data[element.id] = element.value;
     }
 
