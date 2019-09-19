@@ -42,10 +42,10 @@ function createTable() {
             for (element of json) {
                 data[element.id] = element.value;
             }
-            cell1.innerHTML = data[0];
-            cell2.innerHTML = data[1];
-            cell3.innerHTML = data[2];
-            cell4.innerHTML = data[3];
+            cell1.innerHTML = data.id;
+            cell2.innerHTML = data.ingredient1;
+            cell3.innerHTML = data.ingredient2;
+            cell4.innerHTML = data.ingredient3;
 
         } else {
             console.log("Fail!!")
