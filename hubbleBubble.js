@@ -2,7 +2,7 @@ function submitHandler(form) {
 
     let ingredients = {}
 
-    for(element of form.elements){
+    for (element of form.elements) {
         ingredients[element.id] = element.value;
     }
     console.log(ingredients);
@@ -22,7 +22,7 @@ function submitHandler(form) {
     return false;
 }
 
-function createTable(){
+function createTable() {
 
     var table = document.getElementById("table1");
     var row = table.insertRow(0);
@@ -39,6 +39,14 @@ function createTable(){
             console.log("success");
             var json = JSON.parse(req.responseText);
             console.log(json);
+            for (element of json) {
+                data[element.id] = element.value;
+            }
+            cell1.innerHTML = data[0];
+            cell2.innerHTML = data[1];
+            cell3.innerHTML = data[2];
+            cell4.innerHTML = data[3];
+
         } else {
             console.log("Fail!!")
         }
@@ -47,15 +55,6 @@ function createTable(){
     req.send();
 
     let data = {};
-
-    for(element of json){
-        data[element.id] = element.value;
-    }
-
-    cell1.innerHTML = data[0];
-    cell2.innerHTML = data[1];
-    cell3.innerHTML = data[2];
-    cell4.innerHTML = data[3];
 
     return false;
 
