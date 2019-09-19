@@ -22,15 +22,7 @@ function submitHandler(form) {
     return false;
 }
 
-function createTable() {
-
-    var table = document.getElementById("table1");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-
+function getIngredients(){
     const req = new XMLHttpRequest();
     req.open('GET', "http://35.235.61.37:9000/ingredient")
     req.onload = () => {
@@ -39,17 +31,19 @@ function createTable() {
             console.log("success");
             var json = JSON.parse(req.responseText);
             console.log(json);
+            
             for (element of json) {
                 data[element.id] = element.value;
             }
-            cell1.innerHTML = data.id;
-            cell2.innerHTML = data.ingredient1;
-            cell3.innerHTML = data.ingredient2;
-            cell4.innerHTML = data.ingredient3;
-
         } else {
             console.log("Fail!!")
         }
+
+        var select = document.getElementById('selectPotion');
+
+        console.log(select.selectindex);
+        
+        createTable(data['id'], data['ingredient1'], data['ingreient2'], data['ingredient3'])
     }
     req.setRequestHeader('Content-type', "application/json");
     req.send();
@@ -59,3 +53,19 @@ function createTable() {
     return false;
 
 } 
+
+function createTable(id, ingredient1, ingredient2, ingredient3) {
+
+    var table = document.getElementById("table1");
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+
+    cell1.innerHTML = id;
+    cell2.innerHTML = ingredient1;
+    cell3.innerHTML = ingredient2;
+    cell4.innerHTML = ingredient3;
+
+}
