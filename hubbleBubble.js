@@ -47,9 +47,6 @@ function getIngredients(){
     }
     req.setRequestHeader('Content-type', "application/json");
     req.send();
-
-    
-
     return false;
 
 } 
