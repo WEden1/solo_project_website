@@ -22,7 +22,7 @@ function submitHandler(form) {
     return false;
 }
 
-function getIngredients(){
+function getIngredients() {
     const req = new XMLHttpRequest();
     req.open('GET', "http://35.235.61.37:9000/ingredient")
     req.onload = () => {
@@ -35,21 +35,24 @@ function getIngredients(){
             for (element of json) {
                 data[element.id] = element.value;
             }
+
+            var select = document.getElementById('selectPotion');
+
+            console.log(select.selectindex);
+
+            createTable(data['id'], data['ingredient1'], data['ingreient2'], data['ingredient3'])
+
         } else {
             console.log("Fail!!")
         }
 
-        var select = document.getElementById('selectPotion');
 
-        console.log(select.selectindex);
-        
-        createTable(data['id'], data['ingredient1'], data['ingreient2'], data['ingredient3'])
     }
     req.setRequestHeader('Content-type', "application/json");
     req.send();
     return false;
 
-} 
+}
 
 function createTable(id, ingredient1, ingredient2, ingredient3) {
 
