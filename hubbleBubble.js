@@ -31,7 +31,7 @@ function getIngredients(){
             console.log("success");
             var json = JSON.parse(req.responseText);
             console.log(json);
-            
+            let data = {};
             for (element of json) {
                 data[element.id] = element.value;
             }
@@ -48,7 +48,7 @@ function getIngredients(){
     req.setRequestHeader('Content-type', "application/json");
     req.send();
 
-    let data = {};
+    
 
     return false;
 
