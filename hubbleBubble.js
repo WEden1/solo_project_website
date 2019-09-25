@@ -1,4 +1,4 @@
-function getPotions(){
+function getPotions() {
 
     const req = new XMLHttpRequest();
     req.open('GET', "http://localhost:9000/spells")
@@ -8,15 +8,14 @@ function getPotions(){
             console.log("success");
             var json = JSON.parse(req.responseText);
             console.log(json);
-            
-            
+
+
             let data1 = {};
-            for (let i = 0; i<json.length;i++) {
+            for (let i = 0; i < json.length; i++) {
                 data1[i] = json[i];
                 console.log(data1[i])
                 createPotionsTable(data1[i]);
             }
-           
 
         } else {
             console.log("Fail!!")
@@ -28,7 +27,7 @@ function getPotions(){
 }
 
 
-function submitHandler(form) {
+function submitHandlerIngredients(form) {
 
     let ingredients = {}
 
@@ -52,7 +51,37 @@ function submitHandler(form) {
     return false;
 }
 
-function getIngredients() {
+function submitHandlerSpells(form) {
+
+    let spells = {}
+
+    for (element of form.elements) {
+        spells[element.id] = element.value;
+    }
+    console.log(spells);
+
+    const req = new XMLHttpRequest();
+    req.open('POST', "http://localhost:9000/spells")
+    req.onload = () => {
+
+        if (req.status >= 200 && req.status <= 300) {
+            console.log("success");
+        } else {
+            console.log("Fail!!")
+        }
+    }
+    req.setRequestHeader('Content-type', "application/json");
+    req.send(JSON.stringify(spells));
+    return false;
+}
+
+function select() {
+    var selectId = document.getElementById('selectPotion').innerText;
+    console.log(selectId)
+    return selectId
+}
+
+function getIngredients(form) {
     const req = new XMLHttpRequest();
     req.open('GET', "http://localhost:9000/ingredients")
     req.onload = () => {
@@ -61,16 +90,15 @@ function getIngredients() {
             console.log("success");
             var json = JSON.parse(req.responseText);
             console.log(json);
-            
-            
+
+
             let data2 = {};
-            for (let i = 0; i<json.length;i++) {
+            for (let i = 0; i < json.length; i++) {
                 data2[i] = json[i];
                 console.log(data2[i])
             }
-
-            var select = document.getElementById('selectPotion');
-            selectId = select.selectedIndex;
+            selectId = form.elements.selectPotion.value;
+            console.log(selectId);
             createIngredientsTable(data2, selectId);
 
         } else {
@@ -83,18 +111,18 @@ function getIngredients() {
 
 }
 
-async function createPotionsTable(data1) {
+function createPotionsTable(data1) {
 
     var table = document.getElementById("potionTable");
 
-        var row = table.insertRow(1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        console.log(data1)
-        cell1.innerHTML = data1.id
-        cell2.innerHTML = data1.spell;
-        cell3.innerHTML = data1.description;
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    console.log(data1)
+    cell1.innerHTML = data1.id
+    cell2.innerHTML = data1.spell;
+    cell3.innerHTML = data1.description;
 }
 
 function createIngredientsTable(data2, selectId) {
@@ -112,5 +140,52 @@ function createIngredientsTable(data2, selectId) {
     cell3.innerHTML = data2[selectId].ingredient1;
     cell4.innerHTML = data2[selectId].ingredient2;
     cell5.innerHTML = data2[selectId].ingredient3;
+
+}
+
+function deletePotion(form) {
+
+    selectId = form.elements.deletePotions.value;
+    console.log(selectId)
+    const req = new XMLHttpRequest();
+    req.open('DELETE', "http://localhost:9000/spells" + "/" + selectId)
+    req.onload = () => {
+
+        if (req.status >= 200 && req.status <= 300) {
+            console.log("success");
+        } else {
+            console.log("Fail!!")
+        }
+    }
+    req.setRequestHeader('Content-type', "application/json");
+    req.send();
+    return false;
+}
+
+
+function getSpellsUpdate(form) {
+
+   
+    const req = new XMLHttpRequest();
+    req.open('GET', "http://localhost:9000/spells")
+    req.onload = () => {
+
+        if (req.status >= 200 && req.status <= 300) {
+            select = form.elements.updateId.value;
+            console.log(select)
+            console.log("success");
+            var json = JSON.parse(req.responseText);
+            console.log(json);
+            let form = document.getElementById("updateForm");
+            form.elements.updateSpell.innerText = json[select].spell;
+
+        } else {
+            console.log("Fail!!")
+        }
+    }
+    req.setRequestHeader('Content-type', "application/json");
+    req.send();
+    return false;
+
 
 }

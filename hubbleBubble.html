@@ -24,22 +24,54 @@
   <div class="Container-fluid">
 
     <div class="Container" id="inner">
-      <button class="btn btn-primary" data-toggle="modal" data-target="#createPotionModal" id="createButton">Create new potion</button>
-      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#updatePotionModal" id="updateButton"> Update Potion</button>
-
-      <!-- modal element create starts -->
-      <div class="modal fade" id="createPotionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <button class="btn btn-primary" data-toggle="modal" data-target="#addIngredientsModal" id="ingredientsButton">Add new ingredients</button>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#addSpellsModal" id="SpellsButton">Add new Spells</button>
+      
+       <!-- modal element add spells starts -->
+       <div class="modal fade" id="addSpellsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Create New Potion</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Add New Spells</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
             </div>
             <div class="modal-body">
 
-              <form onsubmit="return submitHandler(this)">
+              <form onsubmit="return submitHandlerSpells(this)">
+                <div class="form-group">
+                  <label for="spell">Spell name</label>
+                  <input type="text" class="form-control" id="spell" aria-describedby="emailHelp" placeholder="Enter potion name">
+                </div>
+                <div class="form-group">
+                  <label for="description">Spell description</label>
+                  <input type="text" class="form-control" id="description" placeholder="Enter ingredient 1">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary"> Add New Spell</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- modal element add spells ends  -->
+
+      <!-- modal element add ingredients starts -->
+      <div class="modal fade" id="addIngredientsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add New Ingredients</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+
+              <form onsubmit="return submitHandlerIngredients(this)">
                 <div class="form-group">
                   <label for="potion">Potion name</label>
                   <input type="text" class="form-control" id="potion" aria-describedby="emailHelp" placeholder="Enter potion name">
@@ -59,7 +91,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary"> Add New Potion</button>
+              <button type="submit" class="btn btn-primary"> Add New Ingredients</button>
             </div>
             </form>
           </div>
@@ -68,38 +100,29 @@
       <!-- modal element create ends  -->
 
       <!-- modal element update starts -->
-      <div class="modal fade" id="updatePotionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="updateSpellModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Update New Potion</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Update New Spell</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
             </div>
             <div class="modal-body">
-              <form onsubmit="return submitHandler(this)">
+              <form onsubmit="return submitHandlerUpdatePotion(this)">
                 <div class="form-group">
                   <label for="potion">Potion name</label>
-                  <input type="text" class="form-control" id="potion" aria-describedby="emailHelp" placeholder="Enter potion name">
+                  <input type="text" class="form-control" id="updateSpell" aria-describedby="emailHelp" placeholder="Enter potion name">
                 </div>
                 <div class="form-group">
-                  <label for="ingredient1">Ingredient 1</label>
-                  <input type="text" class="form-control" id="ingredient1" placeholder="Enter ingredient 1">
+                  <label for="description">Description</label>
+                  <input type="text" class="form-control" id="updateDescription" placeholder="Enter description">
                 </div>
-                <div class="form-group">
-                  <label for="ingredient2">Ingredient 2</label>
-                  <input type="text" class="form-control" id="ingredient2" placeholder="Enter ingredient 2">
-                </div>
-                <div class="form-group">
-                  <label for="ingredient3">Ingredient 3</label>
-                  <input type="text" class="form-control" id="ingredient3" placeholder="Enter ingredient 3">
-                </div>
-
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary"> Update Potion</button>
+              <button type="submit" class="btn btn-primary"> Update Spell</button>
             </div>
             </form>
           </div>
@@ -121,22 +144,28 @@
         </table>
       </div>
 
-      <form>
-
+      <form onsubmit="deletePotion(this)">
         <div class="form-group">
-          <label for="exampleFormControlSelect1">Select Potion</label>
-          <select class="form-control" id="selectPotion">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+          <label for="select">Delete Potion</label>
+          <input type="text" class="form-control" id="deletePotions" aria-describedby="selectID" placeholder="Enter potion ID to delete">
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="collapse" href="#ingredientsList" aria-expanded="false" onclick="getIngredients()">Show Ingredients</button>
         <button type="submit" class="btn btn-primary"> Delete Potion</button>
       </form>
 
+      <form onsubmit="return getSpellsUpdate(this)">
+        <div class="form-group">
+          <label for="select">Update Spell</label>
+          <input type="text" class="form-control" id="updateId" aria-describedby="selectID" placeholder="Enter potion ID to show">
+      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#updateSpellModal" id="updateButton"> Update Spells</button>
+      </form>
+
+      <form onsubmit="return getIngredients(this)">
+        <div class="form-group">
+          <label for="select">Show Ingredients</label>
+          <input type="text" class="form-control" id="selectPotion" aria-describedby="selectID" placeholder="Enter potion ID to show">
+      <button type="submit" class="btn btn-primary" data-toggle="collapse" href="#ingredientsList" aria-expanded="false">Show Ingredients</button>
+      </form>
+      
       <div class="container collapse" id="ingredientsList">
         <table class="table" id = "ingredientsTable">
           <thead class="thead-dark">
