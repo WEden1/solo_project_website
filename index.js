@@ -32,6 +32,10 @@ function submitHandlerIngredients(form) {
     let ingredient = {}
 
     for (element of form.elements) {
+        if (element.value == "")
+        {
+            continue;
+        }
         ingredient[element.id] = element.value;
     }
     console.log(ingredient);
