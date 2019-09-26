@@ -29,12 +29,12 @@ function getPotions() {
 
 function submitHandlerIngredients(form) {
 
-    let ingredients = {}
+    let ingredient = {}
 
     for (element of form.elements) {
-        ingredients[element.id] = element.value;
+        ingredient[element.id] = element.value;
     }
-    console.log(ingredients);
+    console.log(ingredient);
 
     const req = new XMLHttpRequest();
     req.open('POST', "http://localhost:9000/ingredients")
@@ -47,7 +47,7 @@ function submitHandlerIngredients(form) {
         }
     }
     req.setRequestHeader('Content-type', "application/json");
-    req.send(JSON.stringify(ingredients));
+    req.send(JSON.stringify(ingredient));
     return false;
 }
 
