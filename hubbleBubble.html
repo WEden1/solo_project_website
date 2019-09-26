@@ -110,14 +110,15 @@
         </button>
             </div>
             <div class="modal-body">
+
               <form onsubmit="return submitHandlerUpdatePotion(this)">
                 <div class="form-group">
                   <label for="potion">Potion name</label>
-                  <input type="text" class="form-control" id="updateSpell" aria-describedby="emailHelp" placeholder="Enter potion name">
+                  <input type="text" class="form-control" id="spell" aria-describedby="emailHelp" placeholder="Enter potion name">
                 </div>
                 <div class="form-group">
                   <label for="description">Description</label>
-                  <input type="text" class="form-control" id="updateDescription" placeholder="Enter description">
+                  <input type="text" class="form-control" id="description" placeholder="Enter description">
                 </div>
             </div>
             <div class="modal-footer">
@@ -151,13 +152,14 @@
         </div>
         <button type="submit" class="btn btn-primary"> Delete Potion</button>
       </form>
-
-      <form onsubmit="return getSpellsUpdate(this)">
+      
+      
         <div class="form-group">
           <label for="select">Update Spell</label>
-          <input type="text" class="form-control" id="updateId" aria-describedby="selectID" placeholder="Enter potion ID to show">
+          <input type="text" class="form-control" id="updateId" aria-describedby="selectID" placeholder="Enter potion ID to update">
       <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#updateSpellModal" id="updateButton"> Update Spells</button>
-      </form>
+      <input type="hidden" id="updatePotionId">
+    
 
       <form onsubmit="return getIngredients(this)">
         <div class="form-group">

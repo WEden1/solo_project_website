@@ -163,29 +163,31 @@ function deletePotion(form) {
 }
 
 
-function getSpellsUpdate(form) {
 
-   
+
+function submitHandlerUpdatePotion(form) {
+
+    let potion = {}
+    let selectUpdate = document.getElementById("updateId").value;
+    console.log(selectUpdate);
+
+    for (element of form.elements) {
+        potion[element.id] = element.value;
+    }
+
+    console.log(potion.spell);
+
     const req = new XMLHttpRequest();
-    req.open('GET', "http://localhost:9000/spells")
+    req.open('PUT', "http://localhost:9000/spells" + "/" + selectUpdate)
     req.onload = () => {
 
         if (req.status >= 200 && req.status <= 300) {
-            select = form.elements.updateId.value;
-            console.log(select)
             console.log("success");
-            var json = JSON.parse(req.responseText);
-            console.log(json);
-            let form = document.getElementById("updateForm");
-            form.elements.updateSpell.innerText = json[select].spell;
-
         } else {
             console.log("Fail!!")
         }
     }
     req.setRequestHeader('Content-type', "application/json");
-    req.send();
+    req.send(JSON.stringify(potion));
     return false;
-
-
 }
